@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="Parks.Views.Login" Title="Parks - Login">
+    <ContentPage.Content>
+        <StackLayout Margin="5,0,5,0" VerticalOptions="Center"
+HorizontalOptions="Fill" Orientation="Vertical">
+            <Image Source="login.png" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BypassLoginCommand" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label x:Name="usuarioLogado"
+HorizontalTextAlignment="Center"
+VerticalTextAlignment="End" TextColor="Black"
+HeightRequest="40" HorizontalOptions="Fill"
+FontSize="Small"/>
+
+            <Button Text="Entrar com Google" Clicked="OnLoginGoogle_Clicked"
+BackgroundColor="#3c5a98" TextColor="White"
+HeightRequest="45" />
+          
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

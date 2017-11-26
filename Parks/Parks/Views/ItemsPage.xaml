@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parks.ItemsPage"
+              Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<StackLayout>
+			<ListView x:Name="ItemsListView" 
+                ItemsSource="{Binding Parks}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadItemsCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnItemSelected">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+                            <Grid BackgroundColor="White" Padding="2" RowSpacing="2" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding Imagem}" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Aspect="AspectFit"
+                                       VerticalOptions="Fill" HorizontalOptions="Fill"/>
+                                
+                                <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="15"
+                                       VerticalOptions="Fill" HorizontalOptions="Fill"
+                                       VerticalTextAlignment="End" HorizontalTextAlignment="Start" />
+                                
+                                <Label Text="{Binding State}" Grid.Row="1" Grid.Column="1"  FontSize="15"
+                                       VerticalOptions="Fill" HorizontalOptions="Fill"
+                                       VerticalTextAlignment="Start" HorizontalTextAlignment="Start"/>
+                            </Grid>
+                        </ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

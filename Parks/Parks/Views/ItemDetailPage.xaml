@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parks.ItemDetailPage"
+             Title="{Binding Title}">
+	<StackLayout Spacing="20" Padding="15">
+        <Image Source="{Binding Imagem}" Aspect="AspectFit" VerticalOptions="Fill" HorizontalOptions="Fill"/>
+        <Label Text="{Binding Item.Name}" FontSize="Medium" FontAttributes="Bold"/>
+        <Label Text="Detalhes do Parque" FontSize="Small"/>
+        <Label Text="{Binding Item.Data}" FontSize="Small"/>
+    </StackLayout>
+</ContentPage>

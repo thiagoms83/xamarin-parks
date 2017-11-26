@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parks.AboutPage"
+             xmlns:vm="clr-namespace:Parks;"
+             xmlns:custom="clr-namespace:Parks.CustomControls"
+             Title="{Binding Title}">
+	<ContentPage.BindingContext>
+		<vm:AboutViewModel />
+	</ContentPage.BindingContext>
+	
+			<StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <!-- mapa para mostrar posição corrente e percurso percorrido -->
+                <custom:CustomMap x:Name="mapVisualizacao" 
+                                  MapType="Street" HasScrollEnabled="True" HasZoomEnabled="True"
+                                  IsShowingUser="False" />
+                
+      
+			</StackLayout>
+		
+	
+</ContentPage>
